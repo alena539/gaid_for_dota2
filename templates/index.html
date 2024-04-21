@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Lines</title> 
+    <center>
+        <style>
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                list-style-type: none;
+                padding: 0;
+            }
+
+            li {
+                border: 5px solid black;
+                padding: 40px;
+                margin: 40px;
+            }
+            ul.uploaded-lines {
+                display: flex;
+                flex-wrap: wrap;
+                list-style-type: none;
+                padding: 0;
+            }
+
+                ul.uploaded-lines li {
+                border: 5px solid black;
+                padding: 40px;
+                margin: 40px;
+            }
+        </style>
+    <center/>
+</head> 
+<body> 
+    <br>  
+    <div> 
+        <h1>ГАЙДЫ ПО DOTA2</h1> 
+        <ul> 
+            {% for word in first_words %} 
+                <li><a href="/line/{{ loop.index }}">{{ word }}</a></li> 
+            {% endfor %} 
+        </ul> 
+    </div> 
+    <ul>
+        {% for word in first_word %}
+        <li><a href="/uploaded_lines/{{ loop.index }}">{{ word }}</a></li> 
+        {% endfor %}
+    </ul>
+    <center> 
+        <h1>Добавь свой гайд</h1> 
+        <form action="/upload" method="post" enctype="multipart/form-data"> 
+            <input type="file" name="file"> 
+            <input type="submit" value="Upload"> 
+        </form> 
+    </center> 
+</body> 
+</html>
